@@ -20,7 +20,7 @@ public class NacosProviderController{
     @Autowired
     private ConfigurableApplicationContext applicationContext;
 
-    // 提供给远程调用的 http://localhost:9092/test/hi 或 http://localhost:9091/test/app/name
+    // 提供给远程调用的 http://localhost:9092/test/hi
     @GetMapping(value = "/test/{message}")
     public String test(@PathVariable String message) {
         return "Hello Nacos Discovery " + message + " i am from port " + port;
