@@ -70,6 +70,8 @@
 
         分布式链路追踪不属于spring cloud alibaba的
 
+        在加入seata-spring-boot-starter的版本与服务器端的seata安装版本一致,如 version 1.4.1 version
+
     </description>
 
     <properties>
