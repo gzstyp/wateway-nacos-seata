@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fwtai</groupId>
+    <artifactId>wateway-nacos-seata</artifactId>
+    <packaging>pom</packaging>
+    <version>v1.0.0</version>
+
+    <url>http://www.fwtai.com</url>
+
+    <modules>
+        <module>provider</module>
+        <module>consumer</module>
+        <module>gateway</module>
+    </modules>
+    <description>
+
+        spring-cloud-gateway整合nacos+整合Sentinel
+
+        已添加gateway路由网关模块,基于nacos服务发现组件,已接入Spring Cloud Alibaba 熔断(Sentinel)
+
+        参考 https://www.jianshu.com/p/9a8d94c0c90c
+
+        https://www.jianshu.com/p/f7b94599ffab
+        https://github.com/alibaba/spring-cloud-alibaba/tree/master/spring-cloud-alibaba-examples
+
+        Spring Boot 配置文件的加载顺序，依次为 bootstrap.properties -> bootstrap.yml -> application.properties -> application.yml
+        其中 bootstrap.properties 配置为最高优先级
+
+        依赖版本简介
+
+        项目的最新版本是 2.1.0.RELEASE
+        1.5.x 版本适用于 Spring Boot 1.5.x
+        2.0.x 版本适用于 Spring Boot 2.0.x
+        2.1.x 版本适用于 Spring Boot 2.1.x
+
+        注意:
+        spring.cloud.nacos.config.server-addr=127.0.0.1:8848 //在 bootstrap.properties|bootstrap.yml 中配置 Nacos server 的地址和应用名
+        spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848 //在 application.properties|application.yml 中配置 Nacos server 的地址
+
+        在微服务架构中，根据业务来拆分成一个个的服务，服务与服务之间可以通过 RPC 相互调用，
+        在 Spring Cloud 中可以用 RestTemplate + LoadBalanceClient 和 Feign 来调用。
+        为了保证其高可用，单个服务通常会集群部署。由于网络原因或者自身的原因，服务并不能保证 100% 可用，
+        如果单个服务出现问题，调用这个服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet 容器的线程资源会被消耗完毕，导致服务瘫痪。
+        服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的 “雪崩” 效应。
+
+        随着微服务的流行，服务和服务之间的稳定性变得越来越重要。
+        Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。
+
+        Spring Cloud Alibaba Nacos Config 是 Spring Cloud Config Server 和 Client 的替代方案
+
+        注意:
+        return "Hello 通过 @Value注解获取 " + name +",注意：通过注解获取的值是之前的值,想要拿到最新的值需要重启应用
+        或通过applicationContext.getEnvironment().getProperty(\"user.name\")"+ applicationContext.getEnvironment().getProperty("user.name");
+
+        Nacos Config 可以多环境的配置
+
+        参考 《千锋教育-Java微服务架构Spring Cloud Alibaba》
+        https://www.funtl.com/zh/spring-cloud-alibaba/#%E6%A6%82%E8%BF%B0
+
+        Seata 1.4.0 + nacos配置和使用
+        https://blog.csdn.net/qq853632587/article/details/111644295
+        https://zxbcw.cn/post/202333/
+        https://www.cnblogs.com/Zhang-Xiang/p/14435175.html
+
+        使用Sentinel熔断器防止服务雪崩;
+
+        Sentinel: 分布式系统的流量防卫兵
+
+        分布式链路追踪不属于spring cloud alibaba的
+
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <!--依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
+    </dependencies>
+    <!--打包配置,独立部署的都需要添加-->
+    <build>
+        <plugins>
+            <!--1.spring boot应用打包jar-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 忽略无web.xml警告 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <!-- 打包jar时注释掉,资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--2.解决Maven项目默认的jdk版本-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--3.打包时跳过测试-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!--4.-->
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/webapp</directory>
+                <targetPath>META-INF/resources</targetPath>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/**</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.ftl</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
