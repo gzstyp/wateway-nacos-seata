@@ -5,12 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-//本项目是服务消费者,已整合Feign
+//本项目spring-cloud-gateway已整合nacos 访问 http://localhost:9000/nacos-consumer-feign/test/hi?token=value 说明 Spring Cloud Gateway 的路由功能配置成功
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients//整合Feign
-public class ConsumerFeignApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ConsumerFeignApplication.class, args);
+@EnableFeignClients
+public class Gateway{
+
+    public static void main(final String[] args) {
+        SpringApplication.run(Gateway.class, args);
     }
 }

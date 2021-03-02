@@ -71,7 +71,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.fwtai.GatewayApplication</mainClass>
+                    <mainClass>com.fwtai.Gateway</mainClass>
                 </configuration>
             </plugin>
         </plugins>

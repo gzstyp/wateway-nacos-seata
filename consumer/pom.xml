@@ -100,7 +100,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.fwtai.ConsumerFeignApplication</mainClass>
+                    <mainClass>com.fwtai.Consumer</mainClass>
                 </configuration>
             </plugin>
         </plugins>

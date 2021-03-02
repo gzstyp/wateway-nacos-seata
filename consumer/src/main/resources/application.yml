@@ -4,7 +4,7 @@ server:
 #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848 //在 application.properties|application.yml 中配置 Nacos server 的地址
 spring:
   application:
-    name: nacos-consumer-feign
+    name: consumer
   cloud:
     nacos:
       discovery:

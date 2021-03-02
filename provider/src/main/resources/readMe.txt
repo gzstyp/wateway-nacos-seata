@@ -1,6 +1,5 @@
 
-ÈçÓĞbootstrap.propertiesÓÅÏÈ¶ÁÈ¡¸ÃÎÄ¼şµÄÅäÖÃĞÅÏ¢
+å¦‚æœ‰bootstrap.propertiesä¼˜å…ˆè¯»å–è¯¥æ–‡ä»¶çš„é…ç½®ä¿¡æ¯
 
 
- Spring Boot ÅäÖÃÎÄ¼şµÄ¼ÓÔØË³Ğò£¬ÒÀ´ÎÎª bootstrap.properties -> bootstrap.yml -> application.properties -> application.yml £¬ÆäÖĞ bootstrap.properties ÅäÖÃÎª×î¸ßÓÅÏÈ¼¶
-
+ Spring Boot é…ç½®æ–‡ä»¶çš„åŠ è½½é¡ºåºï¼Œä¾æ¬¡ä¸º bootstrap.properties -> bootstrap.yml -> application.properties -> application.yml ï¼Œå…¶ä¸­ bootstrap.properties é…ç½®ä¸ºæœ€é«˜ä¼˜å…ˆçº§

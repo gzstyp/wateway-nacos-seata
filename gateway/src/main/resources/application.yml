@@ -4,7 +4,7 @@ server:
 #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848 //在 application.properties|application.yml 中配置 Nacos server 的地址
 spring:
   application:
-    name: spring-gateway
+    name: gateway
   cloud:
     #使用 Nacos 作为服务注册发现
     nacos:
