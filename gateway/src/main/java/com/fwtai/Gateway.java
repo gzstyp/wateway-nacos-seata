@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-//本项目spring-cloud-gateway已整合nacos 访问 http://localhost:9000/consumer/test/hi?token=value 说明 Spring Cloud Gateway 的路由功能配置成功
+// 本项目spring-cloud-gateway已整合nacos 访问 http://127.0.0.1:9000/consumer/consumer/getName?token=value 说明 Spring Cloud Gateway 的路由功能配置成功
+// todo 其调用的是 controller为 consumer 的方法名为 getName,它的本地调用 http://127.0.0.1:9092/consumer/getName
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients

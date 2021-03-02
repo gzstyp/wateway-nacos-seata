@@ -1,6 +1,6 @@
 spring:
   application:
-    name: client #这个值还不能变???
+    name: provider
   cloud:
     nacos:
       config:
