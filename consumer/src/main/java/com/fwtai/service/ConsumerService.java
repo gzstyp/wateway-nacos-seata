@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ConsumerService{
 
     //调用 provider服务的controller为 provider 的方法名message()，
-    // todo 通过gateway网关路由调用的 http://127.0.0.1:9000/provider/provider/yinlz.com?token=w
+    // todo 通过gateway网关路由调用的 http://127.0.0.1:9000/consumer/consumer/message?token=w
     @GetMapping(value = "/provider/{message}")
     String message(@PathVariable("message") String message);
 }
