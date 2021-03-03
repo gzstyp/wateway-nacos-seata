@@ -8,7 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: pro.fwtai.com:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
+        server-addr: 115.220.10.2:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
         enabled: true
 management:
   endpoints:
