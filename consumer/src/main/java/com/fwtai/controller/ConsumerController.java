@@ -13,9 +13,12 @@ public class ConsumerController{
     @Autowired
     private ConsumerService ConsumerService;
 
-    // 本地调用 http://127.0.0.1:9092/consumer/getName
-    @GetMapping(value = "/getName")
-    public String getName(){
+    // todo 本身的服务调用方式 http://127.0.0.1:9092/consumer/message
+    //  本身的服务通过gateway网关调用方式 http://127.0.0.1:9000/consumer/message
+    //  gateway网关调用方式 http://127.0.0.1:9000/consumer/consumer/message?token=w
+
+    @GetMapping(value = "/message")
+    public String message(){
         return ConsumerService.message("消费者服务名ConsumerService,发起的调用->但是呢，说的端口不是我的!!!");
     }
 }

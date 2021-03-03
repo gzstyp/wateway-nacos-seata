@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "provider", fallback = FallbackConsumerServiceImpl.class)
 public interface ConsumerService{
 
-    //调用 provider服务的controller为 provider 的方法名message()，是给gateway网关路由调用的 http://127.0.0.1:9000/provider/provider/yinlz.com?token=w
+    //调用 provider服务的controller为 provider 的方法名message()，
+    // todo 通过gateway网关路由调用的 http://127.0.0.1:9000/provider/provider/yinlz.com?token=w
     @GetMapping(value = "/provider/{message}")
     String message(@PathVariable("message") String message);
 }
