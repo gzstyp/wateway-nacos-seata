@@ -72,6 +72,11 @@
 
         在加入seata-spring-boot-starter的版本与服务器端的seata安装版本一致,如 version 1.4.1 version
 
+        调用关系: gateway:9000 --> consumer:9092 --> provider:8081
+
+        // 第1个consumer是指服务名为 consumer;第2个consumer是指controller名为 consumer;message 指的是方法名
+        http://127.0.0.1:9000/consumer/consumer/message?token=w
+
     </description>
 
     <properties>
