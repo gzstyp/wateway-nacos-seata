@@ -16,6 +16,8 @@
     </modules>
     <description>
 
+        在服务消费方中,我只管吃蛋糕,我更不用管关心做蛋糕,所以在消费方没有service层
+
         spring-cloud-gateway整合nacos+整合Sentinel
 
         已添加gateway路由网关模块,基于nacos服务发现组件,已接入Spring Cloud Alibaba 熔断(Sentinel)

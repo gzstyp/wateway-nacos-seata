@@ -15,3 +15,4 @@ public interface ConsumerService{
     @GetMapping(value = "/provider/{message}")
     String message(@PathVariable("message") String message);
 }
+// todo 在服务消费方中,我只管吃蛋糕,我更不用管关心做蛋糕,所以在消费方没有service层
