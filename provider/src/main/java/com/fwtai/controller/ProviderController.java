@@ -28,6 +28,6 @@ public class ProviderController{
     @GetMapping(value = "/getName")
     public String getName(){
         final String name = providerService.getName();
-        return "Hello 通过 @Value注解获取 " + name +",注意：通过注解获取的值是之前的值,想要拿到最新的值需要重启应用或通过applicationContext.getEnvironment().getProperty(\"user.name\")"+ providerService.environmentValue();
+        return "通过 @Value注解获取 " + name +",注意：通过注解获取的值是之前的值,想要拿到最新的值需要重启应用或通过applicationContext.getEnvironment().getProperty(\"user.name\")"+ providerService.environmentValue();
     }
 }
