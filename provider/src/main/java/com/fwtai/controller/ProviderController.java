@@ -1,6 +1,6 @@
 package com.fwtai.controller;
 
-import com.fwtai.ProviderService;
+import com.fwtai.service.ProviderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
