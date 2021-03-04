@@ -101,7 +101,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+        <!--若是版本Hoxton.SR9报错,换成Hoxton.SR即可-->
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <!-- spring cloud alibaba 2.2.5.RELEASE is compatible with Spring Cloud Hoxton.SR8;Hoxton.SR8与Spring Boot 2.3.x和2.2.x兼容。 -->
         <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
     </properties>
