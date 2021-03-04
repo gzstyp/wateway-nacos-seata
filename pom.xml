@@ -81,6 +81,9 @@
 
         [在全局事务调用者(发起全局事务的服务)的接口上加入@GlobalTransactional 即可]
 
+        skywalking集群
+        http://itmuch.com/skywalking/cluster/
+
     </description>
 
     <properties>
