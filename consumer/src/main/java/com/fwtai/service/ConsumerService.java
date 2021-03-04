@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 // todo 以 Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。但默认是关闭的。需要在配置文件中配置打开它启用它
 //通过 @FeignClient("服务名") 注解来指定调用哪个服务;在 Service 中@FeignClient注解增加 fallback 属性用来指定类,以 Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。
-@FeignClient(value = "provider", fallback = FallbackConsumerServiceImpl.class)
+// todo 使用 @FeignClient注解来指定这个接口所要调用的服务名称,
+@FeignClient(value = "provider", fallback = FallbackConsumerServiceImpl.class)// todo 注意若是值为 fallbackFactory = FallbackConsumerServiceImpl.class,那对应的实现类的是 implements FallbackFactory<ConsumerService>{}
 public interface ConsumerService{
 
     //调用 provider服务的controller为 provider 的方法名message()，
