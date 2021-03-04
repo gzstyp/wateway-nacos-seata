@@ -14,6 +14,13 @@
 
         在服务消费方中,我只管吃蛋糕,我更不用管关心做蛋糕,所以在消费方没有service层
 
+        注意区分fallback和fallbackFactory
+        当在 @FeignClient(value = "provider", fallbackFactory = FallbackConsumerServiceImpl.class)
+        类型 FallbackConsumerServiceImpl 需要实现对应的是 FallbackConsumerServiceImpl implements FallbackFactory《ConsumerService> {}
+
+        当在 @FeignClient(value = "provider", fallback = FallbackConsumerServiceImpl.class)
+        类型 FallbackConsumerServiceImpl 需要实现对应的是FallbackConsumerServiceImpl implements ConsumerService{}
+
         本项目是服务消费者,已整合Feign且已整合Sentinel,若不需要的话，把相关的配置删除即可
 
         Sentinel 控制台提供一个轻量级的控制台，它提供机器发现、单机资源实时监控、集群资源汇总，以及规则管理的功能。您只需要对应用进行简单的配置，就可以使用这些功能。
