@@ -8,12 +8,12 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 115.220.10.2:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
+        server-addr: 192.168.3.66:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
         enabled: true
 #    sentinel: #如果不使用路由网关zuul或spring cloud gateway 的话可以单独配置也可以的
 #      transport:
 #        port: 8721 #端口配置会在应用对应的机器上启动一个 Http Server,该 Server 会与 Sentinel 控制台做交互,有限流规则才能push到sentienl服务端(需要触发限流才能推送到sentienl服务端,比如手动 http://localhost:9092/test/hi )。比如 Sentinel 控制台添加了 1 个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中
-#        dashboard: 115.220.10.2:9848 #指定Sentinel独立的服务器端,若没有则可以不配置此项!!!
+#        dashboard: 192.168.3.108:9848 #指定Sentinel独立的服务器端,若没有则可以不配置此项!!!
 #      enabled: true
 management:
   endpoints:

@@ -9,13 +9,13 @@ spring:
     #使用 Nacos 作为服务注册发现
     nacos:
       discovery:
-        server-addr: 115.220.10.2:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
+        server-addr: 192.168.3.66:8848 #注意这个的discovery和bootstrap.yml的config!!!两个都要同时配置
         enabled: true
     #使用 Sentinel 作为熔断器|监控器
     sentinel:
       transport:
         port: 8720 # 建议不要使用sentinel默认的的端口8719,只有触发限流规则时才push推送到sentinel服务器端
-        dashboard: 115.220.10.2:9848 # Sentinel仪表板地址，当地址为空时不会尝试连接仪表板
+        dashboard: 192.168.3.108:9848 # Sentinel仪表板地址，当地址为空时不会尝试连接仪表板
     #路由网关配置
     gateway:
       #自动转发服务名;设置与服务注册发现组件结合,这样可以采用服务名的路由策略

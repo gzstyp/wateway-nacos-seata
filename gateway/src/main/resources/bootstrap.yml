@@ -4,4 +4,4 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 115.220.10.2:8848 #注意这个的config和application.yml的discovery!!!两个都要同时配置
+        server-addr: 192.168.3.66:8848 #注意这个的config和application.yml的discovery!!!两个都要同时配置
