@@ -48,8 +48,8 @@ spring:
           predicates:
             # Method 方法谓词，这里是匹配 GET 和 POST 请求
             - Method=GET,POST
-        - id: user
-          uri: lb://account
+        - id: provider
+          uri: lb://provider
           predicates:
             - Method=GET,POST
 #目前是无效!

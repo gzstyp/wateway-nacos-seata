@@ -15,10 +15,10 @@ public class ProviderController{
     @Resource
     private ProviderService providerService;
 
-    // todo 本身的服务通过gateway网关调用方式 http://127.0.0.1:9000/provider/provider/yinlz.com?token=w
-    //  消费者通过gateway网关调用方式 http://127.0.0.1:9000/consumer/consumer/message?token=w
-    //  本服务调用方式 http://127.0.0.1:8081/provider/yinlz.com
-    //  '消费者'调用方式 http://127.0.0.1:9092/consumer/message
+    // todo 本身的服务通过gateway网关调用方式 http://127.0.0.1:9000/provider/provider/yinlz.com?token=w ok
+    //  消费者通过gateway网关调用方式 http://127.0.0.1:9000/consumer/consumer/message?token=w ok
+    //  本服务调用方式 http://127.0.0.1:8081/provider/yinlz.com ok
+    //  '消费者'调用方式 http://127.0.0.1:9092/consumer/message ok
     @GetMapping(value = "/{message}")
     public String message(@PathVariable String message) {
         return providerService.message(message);
