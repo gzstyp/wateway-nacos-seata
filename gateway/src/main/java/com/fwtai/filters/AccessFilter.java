@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 //@Component
 public class AccessFilter implements GlobalFilter,Ordered {
 
-    final Logger logger = LoggerFactory.getLogger(AccessFilter.class);
+    private final Logger logger = LoggerFactory.getLogger(AccessFilter.class);
 
     @Override
     public Mono<Void> filter(final ServerWebExchange exchange,final GatewayFilterChain chain){
