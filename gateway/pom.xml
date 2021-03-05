@@ -12,7 +12,8 @@
 
     <description>
         spring-cloud-gateway已整合nacos
-        访问 http://localhost:9000/nacos-consumer-feign/test/hi 有返回说明 Spring Cloud Gateway 的路由功能配置成功
+        访问 http://localhost:9000/consumer/message 有返回说明 Spring Cloud Gateway 的路由功能配置成功
+        Sentinel可以单独的使用,也可以一起和Sentinel独立8719服务端口一起使用
     </description>
 
     <url>http://www.fwtai.com</url>
@@ -39,9 +40,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!-- 若项目仅仅是单独使用Sentinel的依赖,不配合Sentinel独立的服务端 -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
