@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "provider", fallback = FallbackConsumerServiceImpl.class)// todo 注意若是值为 fallbackFactory = FallbackConsumerServiceImpl.class,那对应的实现类的是 implements FallbackFactory<ConsumerService>{}
 public interface ConsumerService{
 
-    //调用 provider服务的controller为 provider 的方法名message()，
-    // todo 通过gateway网关路由调用的 http://127.0.0.1:9000/consumer/consumer/message?token=w
-    @GetMapping(value = "/provider/{message}")
+    //调用 provider服务的controller为 provider 的方法名message()
+    // todo 通过gateway网关路由调用的 http://127.0.0.1:9000/consumer/message?token=w
+    @GetMapping(value = "/{message}")
     String message(@PathVariable("message") String message);
 }
 // todo 在服务消费方中,我只管吃蛋糕,我更不用管关心做蛋糕,所以在消费方没有service层
