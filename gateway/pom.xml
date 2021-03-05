@@ -11,7 +11,7 @@
     <artifactId>gateway</artifactId>
 
     <description>
-        spring-cloud-gateway已整合nacos
+        spring-cloud-gateway已整合nacos+Sentinel
         访问 http://localhost:9000/consumer/message 有返回说明 Spring Cloud Gateway 的路由功能配置成功
         Sentinel可以单独的使用,也可以一起和Sentinel独立8719服务端口一起使用
     </description>
