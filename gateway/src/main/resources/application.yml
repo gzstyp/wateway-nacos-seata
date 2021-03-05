@@ -23,6 +23,21 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true #允许携带认证信息
+            allowed-origins:
+              - "http://192.168.3.108"
+              - "http://api.fwtai.com"
+              - "https://api.fwtai.com"
+            allowed-headers: "*"
+            allowed-methods:
+              - GET
+              - POST
+              - OPTIONS
+            max-age: 7200
       #配置路由规则
       routes:
         # 采用自定义路由 ID（有固定用法，不同的 id 有不同的功能，详见：https://cloud.spring.io/spring-cloud-gateway/2.0.x/single/spring-cloud-gateway.html#gateway-route-filters）
