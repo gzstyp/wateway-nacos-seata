@@ -56,13 +56,21 @@ public class SentinelConfig{
         this.serverCodecConfigurer = serverCodecConfigurer;
     }
 
-    //限流异常处理器
+    //统一限流异常处理器
     @Bean
     @Order(Ordered.HIGHEST_PRECEDENCE)
     public SentinelGatewayBlockExceptionHandler sentinelGatewayBlockExceptionHandler(){
         //注册到 spring cloud gateway
         return new SentinelGatewayBlockExceptionHandler(viewResolvers,serverCodecConfigurer);
     }
+
+    //todo 自定义统一限流异常处理器,请勿删除!!!
+    /*@Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    public MonitorException jsonsentinelGatewayBlockExceptionHandler() {
+        //注册到 spring cloud gateway
+        return new MonitorException(viewResolvers,serverCodecConfigurer);
+    }*/
 
     //限流过滤器
     @Bean
